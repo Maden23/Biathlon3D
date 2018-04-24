@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour 
+public class PlayerMovement2 : MonoBehaviour 
 {
 	public float speed = 8;
 
-	private Vector3 direction = Vector3.zero;
+	float horizontal;
+	float vertical;
 	private Animator animator;
 	private Rigidbody rb;
 
@@ -16,21 +17,21 @@ public class PlayerMovement : MonoBehaviour
 		rb = GetComponent<Rigidbody> ();
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		MoveCharacter ();
 	}
-	
+
 	private void MoveCharacter ()
 	{
-		direction.x = Input.GetAxis ("Horizontal") * speed;
-		direction.z = Input.GetAxis ("Vertical") * speed;
+		horizontal = Input.GetAxis ("Horizontal");
+		vertical = Input.GetAxis ("Vertical");
 
-		if (direction.x != 0 || direction.z != 0) 
+		if (horizontal!= 0 || vertical != 0) 
 		{
 			animator.SetBool ("is_ready", true);
 			animator.SetBool ("is_moving", true);
-			rb.AddForce(direction*Time.deltaTime);
+			rb.AddForce(((transform.right*horizontal)+(transform.forward*vertical))* speed/Time.deltaTime);
 		} 
 		else 
 		{
@@ -39,3 +40,4 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 }
+
