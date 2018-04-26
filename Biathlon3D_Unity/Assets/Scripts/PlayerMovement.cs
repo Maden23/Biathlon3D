@@ -23,14 +23,15 @@ public class PlayerMovement : MonoBehaviour
 	
 	private void MoveCharacter ()
 	{
-		direction.x = Input.GetAxis ("Horizontal") * speed;
-		direction.z = Input.GetAxis ("Vertical") * speed;
+		direction.x = Input.GetAxis ("Horizontal");
+		direction.z = Input.GetAxis ("Vertical");
 
 		if (direction.x != 0 || direction.z != 0) 
 		{
 			animator.SetBool ("is_ready", true);
 			animator.SetBool ("is_moving", true);
-			rb.AddForce(direction*Time.deltaTime);
+			rb.AddForce(direction * speed * Time.deltaTime);
+			rb.AddTorque(Vector3.up * direction.x * speed* Time.deltaTime);
 		} 
 		else 
 		{

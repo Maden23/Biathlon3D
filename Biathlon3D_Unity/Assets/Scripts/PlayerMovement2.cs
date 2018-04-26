@@ -17,7 +17,7 @@ public class PlayerMovement2 : MonoBehaviour
 		rb = GetComponent<Rigidbody> ();
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		MoveCharacter ();
 	}
@@ -31,7 +31,8 @@ public class PlayerMovement2 : MonoBehaviour
 		{
 			animator.SetBool ("is_ready", true);
 			animator.SetBool ("is_moving", true);
-			rb.AddForce(((transform.right*horizontal)+(transform.forward*vertical))* speed/Time.deltaTime);
+			rb.AddForce((/*(transform.right*horizontal)+*/(transform.forward*vertical))* speed * Time.deltaTime);
+			rb.AddTorque(Vector3.up * horizontal * speed * Time.deltaTime);
 		} 
 		else 
 		{
