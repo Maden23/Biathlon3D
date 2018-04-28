@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement2 : MonoBehaviour 
 {
 	public float speed = 8;
+	public float angularSpeed = 100;
 
 	float horizontal;
 	float vertical;
@@ -31,8 +32,8 @@ public class PlayerMovement2 : MonoBehaviour
 		{
 			animator.SetBool ("is_ready", true);
 			animator.SetBool ("is_moving", true);
-			rb.AddForce((/*(transform.right*horizontal)+*/(transform.forward*vertical))* speed * Time.deltaTime);
-			rb.AddTorque(Vector3.up * horizontal * speed * Time.deltaTime);
+			rb.AddForce((/*transform.right*horizontal +*/transform.forward*vertical) * speed * Time.deltaTime, ForceMode.VelocityChange);
+			rb.AddTorque(Vector3.up * horizontal * angularSpeed * Time.deltaTime, ForceMode.VelocityChange);
 		} 
 		else 
 		{
