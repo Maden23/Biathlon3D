@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 802a1b03ce4b79042975e182ba8fb3b3
-timeCreated: 1524932143
+timeCreated: 1524947096
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -28,6 +28,16 @@ ModelImporter:
     100040: white_target_4
     100042: white_target_5
     100044: front_stick_2
+    100046: w_t_1
+    100048: w_t_2
+    100050: w_t_3
+    100052: w_t_4
+    100054: w_t_5
+    100056: wh_target_1
+    100058: wh_target_2
+    100060: wh_target_3
+    100062: wh_target_4
+    100064: wh_target_5
     400000: back_stick_1
     400002: back_stick_2
     400004: back_stick_3
@@ -51,6 +61,16 @@ ModelImporter:
     400040: white_target_4
     400042: white_target_5
     400044: front_stick_2
+    400046: w_t_1
+    400048: w_t_2
+    400050: w_t_3
+    400052: w_t_4
+    400054: w_t_5
+    400056: wh_target_1
+    400058: wh_target_2
+    400060: wh_target_3
+    400062: wh_target_4
+    400064: wh_target_5
     2100000: target
     2100002: black_target
     2100004: white_target
@@ -121,7 +141,24 @@ ModelImporter:
     4300040: black_target_5
     4300042: front_stick_2
     7400000: Default Take
+    7400002: 1st_target_closed
+    7400004: 1st_target_opened
+    7400006: 2nd_target_closed
+    7400008: 2nd_target_opened
+    7400010: 3rd_target_closed
+    7400012: 3rd_target_opened
+    7400014: 4th_target_closed
+    7400016: 4th_target_opened
+    7400018: 5th_target_closed
+    7400020: 5th_target_opened
+    7400022: all_targets_closed
+    7400024: all_targets_opened
     9500000: //RootNode
+    13700000: white_target_1
+    13700002: white_target_2
+    13700004: white_target_3
+    13700006: white_target_4
+    13700008: white_target_5
   externalObjects: {}
   materials:
     importMaterials: 1
