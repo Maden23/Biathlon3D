@@ -22,7 +22,7 @@ public class CharacterMechanics : MonoBehaviour
 	private void FixedUpdate()
 	{
 		MoveCharacter ();
-		UseGravity ();
+		//UseGravity ();
 	}
 
 	private void MoveCharacter ()
@@ -36,13 +36,15 @@ public class CharacterMechanics : MonoBehaviour
 		}
 		if (direction.x != 0 || direction.z != 0) 
 		{
-			animator.SetBool ("isMoving", true);
+			animator.SetBool ("is_ready", true);
+			animator.SetBool ("is_moving", true);
 			direction = transform.TransformDirection (direction);
 			controller.Move (direction * Time.deltaTime); 
 		} 
 		else 
 		{
-			animator.SetBool ("isMoving", false);
+			animator.SetBool ("is_ready", false);
+			animator.SetBool ("is_moving", false);
 		}
 	}
 
