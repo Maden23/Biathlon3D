@@ -32,8 +32,8 @@ public class PlayerMovement2 : MonoBehaviour
 		{
 			animator.SetBool ("is_ready", true);
 			animator.SetBool ("is_moving", true);
-			rb.AddForce((/*transform.right*horizontal +*/transform.forward*vertical) * speed * Time.deltaTime, ForceMode.VelocityChange);
-			rb.AddTorque(Vector3.up * horizontal * angularSpeed * Time.deltaTime, ForceMode.VelocityChange);
+			rb.AddForce((/*transform.right*horizontal +*/transform.forward*vertical) * speed * Time.deltaTime, ForceMode.Impulse);
+			rb.AddTorque(Vector3.up * horizontal * angularSpeed * Time.deltaTime, ForceMode.Impulse);
 		} 
 		else 
 		{
