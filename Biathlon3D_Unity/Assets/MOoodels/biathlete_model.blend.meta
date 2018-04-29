@@ -171,6 +171,7 @@ ModelImporter:
     100326: WGT-rig_VIS_upper_arm_ik_pole_L
     100328: WGT-rig_VIS_upper_arm_ik_pole_R
     100330: WGTS_rig
+    100332: Rifle
     400000: Armature
     400002: biathlete
     400004: //RootNode
@@ -337,6 +338,7 @@ ModelImporter:
     400326: WGT-rig_VIS_upper_arm_ik_pole_L
     400328: WGT-rig_VIS_upper_arm_ik_pole_R
     400330: WGTS_rig
+    400332: Rifle
     2100000: Material_004
     2100002: unnamed
     2100004: Material
@@ -564,6 +566,7 @@ ModelImporter:
     4300148: Cube
     4300150: biathlete
     4300152: right_stick
+    4300154: Rifle
     7400000: Default Take
     7400002: cross-country01
     7400004: cross-country02
@@ -584,6 +587,7 @@ ModelImporter:
     13700002: Cube
     13700004: left_stick
     13700006: right_stick
+    13700008: Rifle
   externalObjects: {}
   materials:
     importMaterials: 1
