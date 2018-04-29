@@ -28,7 +28,7 @@ public class PlayerMovement2 : MonoBehaviour
 		horizontal = Input.GetAxis ("Horizontal");
 		vertical = Input.GetAxis ("Vertical");
 
-		if (horizontal!= 0 || vertical != 0) 
+		if (horizontal != 0 || vertical > 0) 
 		{
 			animator.SetBool ("is_ready", true);
 			animator.SetBool ("is_moving", true);
