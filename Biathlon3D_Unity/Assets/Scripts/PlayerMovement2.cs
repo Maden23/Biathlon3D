@@ -22,6 +22,7 @@ public class PlayerMovement2 : MonoBehaviour
 	{
 		//Use when moving by Translate
 		MoveCharacter ();
+		GetUpIfFell ();
 	}
 
 	/*private void FixedUpdate()
@@ -48,6 +49,18 @@ public class PlayerMovement2 : MonoBehaviour
 		{
 			animator.SetBool ("is_ready", false);
 			animator.SetBool ("is_moving", false);
+		}
+	}
+
+	private void GetUpIfFell()
+	{
+		if (Mathf.Abs (transform.eulerAngles.x) > 45) 
+		{
+			transform.Rotate (-transform.eulerAngles.x, 0, 0);
+		}
+		if (Mathf.Abs (transform.eulerAngles.z) > 30) 
+		{
+			transform.Rotate (0, 0, -transform.eulerAngles.z);
 		}
 	}
 }
