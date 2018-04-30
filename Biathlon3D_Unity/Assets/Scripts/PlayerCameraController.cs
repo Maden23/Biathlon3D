@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class PlayerCameraController : MonoBehaviour 
 {
-	public GameObject player;
-	private Vector3 playerPos;
-	private Quaternion playerRot;
-	private Vector3 displacement;
+	public GameObject target;
+	private Vector3 offset;
 
 	void Start () 
 	{
-		playerPos = player.transform.position;
-		playerRot = player.transform.rotation;
-		displacement.x = -0.5f;
-		displacement.y = 6;
-		displacement.z = -11;
+		offset = target.transform.position - transform.position;
 	}
 	
-	void Update () 
+	void LateUpdate () 
 	{
-		playerPos = player.transform.position;
-		transform.position = playerPos + displacement;
-		transform.Rotate(0, playerRot.eulerAngles.y, playerRot.eulerAngles.z);
+		float targetAngle = target.transform.eulerAngles.y;
+		Quaternion rotation = Quaternion.Euler (0, targetAngle, 0);
+		transform.position = target.transform.position + rotation * offset;
+		transform.LookAt (target.transform);
 	}
 }
