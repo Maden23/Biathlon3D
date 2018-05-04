@@ -8,6 +8,9 @@ public class ShootingControls : MonoBehaviour {
 	float vertical;
 	private Animator animator;
 	public int speed;
+	public GameObject bullet;
+	public int shotspeed = 1000;
+	public Transform StartPoint;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +20,7 @@ public class ShootingControls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Controls ();
+		Shot ();
 	}
 
 	private void Controls(){
@@ -26,5 +30,15 @@ public class ShootingControls : MonoBehaviour {
 			transform.Rotate (0, vertical *speed* Time.deltaTime, 0);
 			transform.Rotate (0, 0, -1*horizontal * speed * Time.deltaTime);
 		}
+	}
+
+	void Shot () {
+		if (Input.GetMouseButtonDown(0)) {
+			GameObject obj = Instantiate(this.bullet, this.StartPoint.position, Quaternion.identity) as GameObject;
+			obj.transform.forward = this.StartPoint.forward;
+			obj.GetComponent<Rigidbody>().AddForce(Vector3.forward * shotspeed * Time.deltaTime);
+			Destroy (obj, 2);
+		}
+
 	}
 }
