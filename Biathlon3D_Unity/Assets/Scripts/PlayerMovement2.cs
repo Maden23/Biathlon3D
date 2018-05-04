@@ -18,6 +18,7 @@ public class PlayerMovement2 : MonoBehaviour
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody> ();
 		ShCam.SetActive (false);
+		GetComponent<ShootingControls> ().enabled =false;
 	}
 
 	private void Update()

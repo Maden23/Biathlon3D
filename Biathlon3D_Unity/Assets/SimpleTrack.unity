@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.5748171, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -45671,6 +45671,7 @@ GameObject:
   - component: {fileID: 1985923199}
   - component: {fileID: 1985923202}
   - component: {fileID: 1985923203}
+  - component: {fileID: 1985923204}
   m_Layer: 0
   m_Name: biathlete_model
   m_TagString: Player
@@ -45706,7 +45707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   angularSpeed: 80
-  ShCam: {fileID: 0}
+  ShCam: {fileID: 220908770}
 --- !u!95 &1985923200
 Animator:
   serializedVersion: 3
@@ -45731,8 +45732,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 802147b91b655d748b96dedea1dd8e95, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1985923197}
-  m_LocalRotation: {x: -0, y: -0.5976743, z: -0, w: -0.801739}
-  m_LocalPosition: {x: 139.5656, y: 9, z: 91.37811}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 158.2, y: 9, z: 89.4}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 187909079}
@@ -45743,7 +45744,7 @@ Transform:
   - {fileID: 450161775}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -286.593, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1985923202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45768,6 +45769,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.8166504, y: 5.8221893, z: 0.98727417}
   m_Center: {x: -0.23526001, y: 2.9195805, z: 0.44569397}
+--- !u!114 &1985923204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1985923197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890dbff868bc5aa4da4639796bfc7ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &1990822395
 GameObject:
   m_ObjectHideFlags: 0

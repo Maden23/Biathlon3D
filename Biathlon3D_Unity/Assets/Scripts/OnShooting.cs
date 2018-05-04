@@ -14,6 +14,8 @@ public class OnShooting : MonoBehaviour {
 			player.GetComponent<Animator> ().SetBool ("is_readyToShoot", true);
 			MainCam.SetActive (false);
 			ShCam.SetActive (true);
+			player.GetComponent<ShootingControls> ().enabled = true;
+			player.GetComponent<Rigidbody> ().useGravity = false;
 		}
 			
 	}
