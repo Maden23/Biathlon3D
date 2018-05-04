@@ -343,6 +343,10 @@ ModelImporter:
     2100002: unnamed
     2100004: Material
     2100006: Material_002
+    2100008: Russian_material
+    2100010: Material__Russian_uniform
+    2100012: Material_004__Rifle
+    2100014: Material_002__left_stick
     2300000: WGT-rig_breast_L
     2300002: WGT-rig_breast_R
     2300004: WGT-rig_chest
