@@ -11,11 +11,13 @@ public class PlayerMovement2 : MonoBehaviour
 	float vertical;
 	private Animator animator;
 	private Rigidbody rb;
+	public GameObject ShCam;
 
 	void Start () 
 	{
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody> ();
+		ShCam.SetActive (false);
 	}
 
 	private void Update()
