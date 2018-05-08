@@ -6,10 +6,9 @@ public class ShootingControls : MonoBehaviour {
 
 	float horizontal;
 	float vertical;
-	private Animator animator;
 	public int speed;
 	public GameObject bullet;
-	public int shotspeed = 1000;
+	public int shotspeed;
 	public Transform StartPoint;
 
 	// Use this for initialization
@@ -19,6 +18,7 @@ public class ShootingControls : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		Debug.DrawRay (StartPoint.position, StartPoint.forward*100000, Color.green);
 		Controls ();
 		Shot ();
 	}
@@ -33,11 +33,19 @@ public class ShootingControls : MonoBehaviour {
 	}
 
 	void Shot () {
-		if (Input.GetMouseButtonDown(0)) {
-			GameObject obj = Instantiate(this.bullet, this.StartPoint.position, Quaternion.identity) as GameObject;
+		if (Input.GetMouseButtonDown (0)) {
+			GetComponent<Animator>().SetBool("is_shootingdown", true);
+			GameObject obj = Instantiate (this.bullet, this.StartPoint.position, Quaternion.identity) as GameObject;
 			obj.transform.forward = this.StartPoint.forward;
-			obj.GetComponent<Rigidbody>().AddForce(Vector3.forward * shotspeed * Time.deltaTime);
+			//obj.transform.Translate(Vector3.back * shotspeed * Time.deltaTime);
+			obj.GetComponent<Rigidbody> ().AddForce (Vector3.back * shotspeed * Time.deltaTime);
+			/*RaycastHit hit;
+			if (Physics.Raycast(obj.transform.position, obj.transform.forward, out hit, 2)) {
+				print (hit.transform.name);
+			}*/
 			Destroy (obj, 2);
+		} else {
+			GetComponent<Animator>().SetBool ("is_shootingdown", false);
 		}
 
 	}

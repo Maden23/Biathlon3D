@@ -12,6 +12,7 @@ public class PlayerMovement2 : MonoBehaviour
 	private Animator animator;
 	private Rigidbody rb;
 	public GameObject ShCam;
+	public Transform StartPoint;
 
 	void Start () 
 	{
@@ -24,6 +25,7 @@ public class PlayerMovement2 : MonoBehaviour
 	private void Update()
 	{
 		//Use when moving by Translate
+		Debug.DrawRay (StartPoint.position, StartPoint.forward*100000, Color.green);
 		MoveCharacter ();
 		GetUpIfFell ();
 	}
