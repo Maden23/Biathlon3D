@@ -26,8 +26,15 @@ public class PlayerMovement2 : MonoBehaviour
 	{
 		//Use when moving by Translate
 		Debug.DrawRay (StartPoint.position, StartPoint.forward*100000, Color.green);
-		MoveCharacter ();
 		GetUpIfFell ();
+		if ((transform.eulerAngles.x) > 10) {
+			animator.SetBool ("is_startdownhill", true);
+			animator.SetBool ("is_ondownhill", true);
+		} else {
+			animator.SetBool ("is_startdownhill", false);
+			animator.SetBool ("is_ondownhill", false);
+		}
+		MoveCharacter ();
 	}
 
 	/*private void FixedUpdate()
@@ -40,6 +47,19 @@ public class PlayerMovement2 : MonoBehaviour
 	{
 		horizontal = Input.GetAxis ("Horizontal");
 		vertical = Input.GetAxis ("Vertical");
+
+		/*if ((transform.eulerAngles.x) > 5 && (transform.eulerAngles.x) < 45) {
+			animator.SetBool ("is_ready", false);
+			animator.SetBool ("is_moving", false);
+			animator.SetBool ("is_startdownhill", true);
+			animator.SetBool ("is_ondownhill", true);
+		} else {
+			animator.SetBool ("is_ready", true);
+			animator.SetBool ("is_moving", true);
+			animator.SetBool ("is_startdownhill", false);
+			animator.SetBool ("is_ondownhill", false);*/
+
+
 
 		if (horizontal != 0 || vertical > 0) 
 		{
@@ -55,6 +75,7 @@ public class PlayerMovement2 : MonoBehaviour
 			animator.SetBool ("is_ready", false);
 			animator.SetBool ("is_moving", false);
 		}
+			
 	}
 
 	private void GetUpIfFell()

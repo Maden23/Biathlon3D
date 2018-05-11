@@ -24830,6 +24830,11 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 86eb3c3776a790d48b318070a457464b, type: 3}
   m_PrefabInternal: {fileID: 1120686904}
+--- !u!1 &997854717 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1261674324512688, guid: 72a16085ab5aa1d4ca1cf4b69c3144ff,
+    type: 2}
+  m_PrefabInternal: {fileID: 1814200152}
 --- !u!224 &997854718 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224865252549149948, guid: 72a16085ab5aa1d4ca1cf4b69c3144ff,
@@ -28208,7 +28213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bestTime: 59.68
-  UIShowPanel: {fileID: 0}
+  UIShowPanel: {fileID: 997854717}
 --- !u!4 &1151622056 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 6530420c87c9b3e43960dec3011416a9, type: 3}
@@ -49246,7 +49251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcb5001a3aba74498f14ade654271e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 5
   angularSpeed: 80
   ShCam: {fileID: 220908770}
   StartPoint: {fileID: 136565557}
