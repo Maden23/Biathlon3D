@@ -41,10 +41,10 @@ public class ShootingControls : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast (StartPoint.transform.position, StartPoint.transform.forward * 100000, out hit)) {
 				Debug.Log (hit.transform.name);
-				hit.transform.gameObject.GetComponent<Animator> ().SetBool ("is_got", true);
-			} else {
-				hit.transform.gameObject.GetComponent<Animator>().SetBool("is_got", false);
-			}
+				hit.transform.gameObject.GetComponentInChildren<Animator> ().SetBool ("is_got", true);
+			} /*else {
+				hit.transform.gameObject.GetComponentInChildren<Animator> ().SetBool("is_got", false);
+			}*/
 			GetComponent<Animator>().SetBool("is_shootingdown", true);
 		} else {
 			GetComponent<Animator>().SetBool ("is_shootingdown", false);

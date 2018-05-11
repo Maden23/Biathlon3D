@@ -12,7 +12,7 @@ public class OnShooting : MonoBehaviour {
 		if (other.CompareTag ("Player")) {
 			player.GetComponent<PlayerMovement2> ().enabled = false;
 			player.GetComponent<Animator> ().SetBool ("is_readyToShoot", true);
-			Invoke ("ChangeCamera", 7);
+			Invoke ("ChangeCamera", 3);
 			player.GetComponent<ShootingControls> ().enabled = true;
 			player.GetComponent<Rigidbody> ().useGravity = false;
 		}
