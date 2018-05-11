@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimeFromStart : MonoBehaviour {
+public class TimeFromStartCounter : MonoBehaviour {
 	private Text timerLabel;
 	void Start () {
 		timerLabel = GetComponent<Text> ();

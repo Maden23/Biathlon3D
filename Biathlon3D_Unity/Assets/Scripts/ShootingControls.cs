@@ -34,16 +34,18 @@ public class ShootingControls : MonoBehaviour {
 
 	void Shot () {
 		if (Input.GetMouseButtonDown (0)) {
-			GetComponent<Animator>().SetBool("is_shootingdown", true);
-			GameObject obj = Instantiate (this.bullet, this.StartPoint.position, Quaternion.identity) as GameObject;
-			obj.transform.forward = this.StartPoint.forward;
+			//GameObject obj = Instantiate (this.bullet, this.StartPoint.position, Quaternion.identity) as GameObject;
+			//obj.transform.forward = this.StartPoint.forward;
 			//obj.transform.Translate(Vector3.back * shotspeed * Time.deltaTime);
-			obj.GetComponent<Rigidbody> ().AddForce (Vector3.back * shotspeed * Time.deltaTime);
-			/*RaycastHit hit;
-			if (Physics.Raycast(obj.transform.position, obj.transform.forward, out hit, 2)) {
-				print (hit.transform.name);
-			}*/
-			Destroy (obj, 2);
+			//obj.GetComponent<Rigidbody> ().AddForce (Vector3.back * shotspeed * Time.deltaTime);
+			RaycastHit hit;
+			if (Physics.Raycast (StartPoint.transform.position, StartPoint.transform.forward * 100000, out hit)) {
+				Debug.Log (hit.transform.name);
+				hit.transform.gameObject.GetComponent<Animator> ().SetBool ("is_got", true);
+			} else {
+				hit.transform.gameObject.GetComponent<Animator>().SetBool("is_got", false);
+			}
+			GetComponent<Animator>().SetBool("is_shootingdown", true);
 		} else {
 			GetComponent<Animator>().SetBool ("is_shootingdown", false);
 		}
