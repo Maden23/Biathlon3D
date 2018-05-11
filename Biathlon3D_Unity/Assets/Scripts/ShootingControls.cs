@@ -31,7 +31,7 @@ public class ShootingControls : MonoBehaviour {
 			transform.Rotate (0, 0, -1*horizontal * speed * Time.deltaTime);
 		}
 	}
-
+	
 	void Shot () {
 		if (Input.GetMouseButtonDown (0)) {
 			//GameObject obj = Instantiate (this.bullet, this.StartPoint.position, Quaternion.identity) as GameObject;
