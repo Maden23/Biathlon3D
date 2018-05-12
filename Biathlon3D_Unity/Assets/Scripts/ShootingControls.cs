@@ -10,10 +10,11 @@ public class ShootingControls : MonoBehaviour {
 	public GameObject bullet;
 	public int shotspeed;
 	public Transform StartPoint;
+	public int bulletsnum;
 
 	// Use this for initialization
 	void Start () {
-		
+		bulletsnum = 5;
 	}
 
 	// Update is called once per frame
@@ -30,25 +31,53 @@ public class ShootingControls : MonoBehaviour {
 			transform.Rotate (0, vertical *speed* Time.deltaTime, 0);
 			transform.Rotate (0, 0, -1*horizontal * speed * Time.deltaTime);
 		}
+		if (Mathf.Abs (transform.eulerAngles.x) > 1) 
+		{
+			transform.Rotate (-transform.eulerAngles.x, 0, 0);
+		}
 	}
 	
 	void Shot () {
+			//Invoke ("setIsReadyToShoot", 1);
 		if (Input.GetMouseButtonDown (0)) {
-			//GameObject obj = Instantiate (this.bullet, this.StartPoint.position, Quaternion.identity) as GameObject;
-			//obj.transform.forward = this.StartPoint.forward;
-			//obj.transform.Translate(Vector3.back * shotspeed * Time.deltaTime);
-			//obj.GetComponent<Rigidbody> ().AddForce (Vector3.back * shotspeed * Time.deltaTime);
-			RaycastHit hit;
-			if (Physics.Raycast (StartPoint.transform.position, StartPoint.transform.forward * 100000, out hit)) {
-				Debug.Log (hit.transform.name);
-				hit.transform.gameObject.GetComponentInChildren<Animator> ().SetBool ("is_got", true);
-			} /*else {
-				hit.transform.gameObject.GetComponentInChildren<Animator> ().SetBool("is_got", false);
-			}*/
-			GetComponent<Animator>().SetBool("is_shootingdown", true);
-		} else {
-			GetComponent<Animator>().SetBool ("is_shootingdown", false);
+			if (bulletsnum!=0) {
+				RaycastHit hit;
+				if ((Physics.Raycast (StartPoint.transform.position, StartPoint.transform.forward * 100000, out hit))) {
+					if (hit.transform.CompareTag ("Target")) {
+						Debug.Log ("Got");
+						hit.transform.gameObject.GetComponentInChildren<Animator> ().SetBool ("is_got", true);
+					} else {
+						Debug.Log ("Missed");
+					}
+					bulletsnum -= 1;
+					GetComponent<Animator> ().SetBool ("is_shootingdown", true);
+				} else {
+					GetComponent<Animator> ().SetBool ("is_shootingdown", false);
+				}
+			}
 		}
-
 	}
+
+
+
+	/*private void setIsReadyToShoot(){
+		if (Input.GetMouseButtonDown (0)) {
+			if (bulletsnum!=0) {
+				RaycastHit hit;
+				if ((Physics.Raycast (StartPoint.transform.position, StartPoint.transform.forward * 100000, out hit))) {
+					if (hit.transform.CompareTag ("Target")) {
+						Debug.Log ("Got");
+						hit.transform.gameObject.GetComponentInChildren<Animator> ().SetBool ("is_got", true);
+					} else {
+						Debug.Log ("Missed");
+					}
+					bulletsnum -= 1;
+					GetComponent<Animator> ().SetBool ("is_shootingdown", true);
+				} else {
+					GetComponent<Animator> ().SetBool ("is_shootingdown", false);
+				}
+			}
+		}
+	}*/
+
 }
