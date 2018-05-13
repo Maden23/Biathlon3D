@@ -78078,6 +78078,7 @@ MonoBehaviour:
   - 0
   - 0
   lastLap: 0
+  scoresFile: Assets/Resources/HighScores.txt
 --- !u!65 &1985923203
 BoxCollider:
   m_ObjectHideFlags: 0
