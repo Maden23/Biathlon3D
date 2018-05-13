@@ -15,8 +15,8 @@ public class DownhillAnimationOff : MonoBehaviour {
 			animator = other.GetComponent<Animator> ();
 			animator.SetBool ("is_startdownhill", false);
 			animator.SetBool ("is_ondownhill", false);
-			playerSpeed = other.GetComponent<PlayerMovement2> ().speed;
-			other.GetComponent<PlayerMovement2> ().speed = playerSpeed / 1.5f;
+			playerSpeed = other.GetComponent<PlayerMovement> ().speed;
+			other.GetComponent<PlayerMovement> ().speed = playerSpeed / 1.5f;
 		}
 	}
 }

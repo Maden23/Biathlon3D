@@ -5,41 +5,66 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour 
 {
 	public float speed = 8;
+	public float angularSpeed = 100;
 
-	private Vector3 direction = Vector3.zero;
+	float horizontal;
+	float vertical;
 	private Animator animator;
 	private Rigidbody rb;
+	public GameObject ShCam;
+	public Transform StartPoint;
+
+	private bool flatTerrain;
 
 	void Start () 
 	{
+		flatTerrain = true;
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody> ();
+		ShCam.SetActive (false);
+		GetComponent<ShootingControls> ().enabled =false;
+
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
+		Debug.DrawRay (StartPoint.position, StartPoint.forward*100000, Color.green);
+		GetUpIfFell ();
+		
 		MoveCharacter ();
 	}
-	
+
+
 	private void MoveCharacter ()
 	{
-		direction.x = Input.GetAxis ("Horizontal");
-		direction.z = Input.GetAxis ("Vertical");
+		horizontal = Input.GetAxis ("Horizontal");
+		vertical = Input.GetAxis ("Vertical");
 
-		if (direction != Vector3.zero) 
+		if (horizontal != 0 || vertical > 0) 
 		{
-			transform.forward = direction;
-			animator.SetBool ("is_ready", true);
 			animator.SetBool ("is_moving", true);
-			transform.forward = direction;
-			rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
-			//rb.AddForce(direction * speed * Time.deltaTime);
-			//rb.AddTorque(Vector3.up * direction.x * speed* Time.deltaTime);
-		} 
-		else 
+			animator.SetBool ("is_ready", true);
+			transform.Translate(0, 0, vertical * speed * Time.deltaTime);
+			transform.Rotate (0, horizontal * angularSpeed * Time.deltaTime, 0);
+		} 	
+		else if (flatTerrain)
 		{
-			animator.SetBool ("is_ready", false);
 			animator.SetBool ("is_moving", false);
+			animator.SetBool ("is_ready", false);
+		}
+			
+	}
+
+	private void GetUpIfFell()
+	{
+		if (Mathf.Abs (transform.eulerAngles.x) > 45) 
+		{
+			transform.Rotate (-transform.eulerAngles.x, 0, 0);
+		}
+		if (Mathf.Abs (transform.eulerAngles.z) > 30) 
+		{
+			transform.Rotate (0, 0, -transform.eulerAngles.z);
 		}
 	}
 }
+
