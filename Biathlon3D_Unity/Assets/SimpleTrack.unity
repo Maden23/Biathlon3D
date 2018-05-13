@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -24303,7 +24303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &951098170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24318,11 +24318,11 @@ RectTransform:
   m_Father: {fileID: 445901567}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -528.2}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 138, y: 38}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &951098171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49994,7 +49994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   bullet: {fileID: 1806518030363904, guid: 2a34c52268d1df04bb7b641612f5ad00, type: 2}
-  shotspeed: 600
+  reloadTime: 1
   StartPoint: {fileID: 136565557}
   bulletsnum: 0
 --- !u!1 &1990822395
