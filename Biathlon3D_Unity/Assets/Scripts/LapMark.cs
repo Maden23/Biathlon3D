@@ -33,6 +33,8 @@ public class LapMark : MonoBehaviour {
 				time = totalTime;
 				lapTimeField.text = string.Format("{0}:{1:00}.{2:00}", (int)(time / 60), (int)time % 60, (time - (int)time) * 100);
 				diffTimeField.text = "--:--.--";
+				stats.UpdateRecordsTable (time);
+				stats.ShowStats ();
 				return;
 			}
 
